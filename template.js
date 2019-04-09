@@ -21,10 +21,7 @@ fs.readFile(FILE, 'utf-8', (err, data) => {
 
     /*for (let i=0; i<dataArray.length; i++){
         console.log(dataArray[i]);
-    }*/
-
-// Gör ett script som skapar ett skelett för js-filer
-    
+    }*/    
 
     endTime = new Date() - startTime;
 
