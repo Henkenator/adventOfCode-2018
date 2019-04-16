@@ -1,5 +1,6 @@
 module.exports.getSpecs = (info) => {
     let details = info.split(" ");
+    let id = details[0];
     let coordinates = details[2].split(",");
     let xCoord = parseInt(coordinates[0]);
     let yCoord = coordinates[1];
@@ -8,7 +9,7 @@ module.exports.getSpecs = (info) => {
     let size = details[3].split("x");
     let width = parseInt(size[0]);
     let height = parseInt(size[1]);
-    return {x: xCoord, y: yCoord, w: width, h: height};
+    return {x: xCoord, y: yCoord, w: width, h: height, id: id};
 };
 
 const create = (amount) => new Array(amount).fill(0);
@@ -32,4 +33,15 @@ module.exports.countOverlap = (matrix) => {
         })
     });
     return counter;
+};
+
+module.exports.fabricIntact = (matrix, x, y, width, height) => {
+    for(let i=x; i<(x+width); i++) {
+        for (let j=y; j<(y+height); j++) {
+            if (matrix[i][j] > 1) {
+                return false;
+            }
+        }
+    }
+    return true;
 };
